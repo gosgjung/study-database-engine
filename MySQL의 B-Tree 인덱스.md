@@ -8,7 +8,7 @@ B-Tree의 B는 Binary(이진)의 약자가 아니라, Balanced 의 약자를 의
 
 <br>
 
-# B+Tree vs B-Tree
+# B+Tree vs B-Tree (InnoDB)
 
 InnoDB에서는 B-Tree 라고 부르는 B-Tree 인덱스는 사실 B+Tree 를 조금 복잡하게 구현한 자료구조다. (참고 : [B-Tree, B+Tree란?](https://zorba91.tistory.com/293))<br>
 
@@ -51,9 +51,34 @@ B+Tree 는 파일 시스템에서만 거의 채택되는 데에도 불구하고 
 
 
 
-## B-Tree
+## InnoDB의 B+Tree, 그리고 MySQL의 B-Tree ?
+
+**SQL, 명령문, DDL 계층의 B-Tree vs 물리적 계층의 B+Tree or T-Tree**<br>
+
+흔히 인덱스의 종류에 대한 이야기 없이 일반적인 인덱스를 이야기할 때는 보통 B-Tree 데이터 구조를 의미하는 편이다.  CREATE TABLE 및 기타 SQL 에서 사용하는 인덱스에서는 실제로 B-Tree 라는 용어를 사용한다. 하지만 실제 스토리지 엔진 레벨에서의 물리적인 자료구조는 B+Tree 를 사용하거나 T-트리 데이터 구조를 사용하는 등 다양하다.<br>
+
+실제로 MySQL은 SQL/DDL 계층에서는 B-Tree 라는 용어로 인덱스를 표현한다. 하지만, 스토리지 엔진에 따라 물리적으로 채택하는 자료구조는 조금씩 다르다. 예를 들어 NDB Cluster, InnoDB 스토리지 엔진이 선택하는 물리적인 자료구조들은 아래와 같다.
+
+- NDB Cluster : T-트리
+- InnoDB : B+트리
+
+<br>
+
+**결론을 이야기해보면**<br>
+
+InnoDB 스토리지 엔진에서는 B+Tree 구조를 사용하고 있다고 하는 것이 정확한 표현이다.<br>
+
+스토리지 엔진이 아닌, DDL,SQL 계층에서의 인덱스에 대해서 이야기할 때는 그리고 B-Tree 자료구조를 의미하는 경우가 있을 수 있다.<br>
+
+<br>
+
+
+
+
 
 리프노드를 제외하고 데이터를 담아두지 ㅇ낳기 때문에 메모리를 더 확보할 수 있다. 따라서 더 많은 key 들을 수용할 수 있다.
+
+I
 
 
 
@@ -61,11 +86,25 @@ B+Tree 는 파일 시스템에서만 거의 채택되는 데에도 불구하고 
 
 
 
-# B-트리 인덱스의 구조
+# B-트리 자료구조
+
+> [B-Tree(B-Tree)](https://rebro.kr/169)<br>
+>
+> [간단히 알아보는 B-Tree, B+Tree, B*Tree](https://ssocoit.tistory.com/217)<br>
+>
+> [B-Tree 인덱스](https://12bme.tistory.com/138)<br>
+>
+> [그림으로 알아보는 B-Tree](https://velog.io/@emplam27/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EA%B7%B8%EB%A6%BC%EC%9C%BC%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-B-Tree)<br>
+>
+> [B-Tree, B+Tree란?](https://zorba91.tistory.com/293)<br>
+
+<br>
 
 **루트노드**<br>
 
-B-Tree는 트리 구조의 최 상위에 루트노드가 있다. 그리고 그 하위에 자식 노드가 붙어있는 형태다. 
+B-Tree는 트리 구조의 최 상위에 루트노드가 있다. 그리고 그 하위에 자식 노드가 붙어있는 형태다.<br>
+
+<br>
 
 **리프노드**<br>
 
@@ -81,9 +120,7 @@ DB는 인덱스와 실제 데이터가 저장된 데이터를 따로 취급한�
 
 트리구조에서 루트노드,리프노드는 아니지만, 다른 노드의 부모가 되는 노드를 브랜치 노드라고 한다.<br>
 
-
-
-
+<br>
 
 스토리지 엔진이 원하는 데이터를 찾기 위해 전체 테이블을 스캔할 필요가 없다. 전체 테이블을 스캔하지 않으므로 데이터 액세스 속도가 비교적 빠르다. 대신 루트 노드에서부터 시작한다.
 
