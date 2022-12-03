@@ -5,6 +5,7 @@
 - [위키백과 - B+Tree](https://ko.wikipedia.org/wiki/B%2B_%ED%8A%B8%EB%A6%AC)
 - [B-Tree, B+Tree란?](https://zorba91.tistory.com/293)
 - [Real MySQL - B-Tree 인덱스](https://12bme.tistory.com/138)
+- [MySQL 성능 최적화](http://www.yes24.com/Product/Goods/112622445)
 
 <br>
 
@@ -164,6 +165,8 @@ CREATE TABLE People(
 > 하얀색 포인터 : 하위 페이지에 대한 포인터<br>
 >
 > 회색 포인터 : 페이지에서의 값<br>
+>
+> 이미지 출처 : [MySQL 성능 최적화](http://www.yes24.com/Product/Goods/112622445)<br>
 
 <br>
 
