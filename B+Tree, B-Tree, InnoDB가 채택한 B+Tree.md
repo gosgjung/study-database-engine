@@ -51,8 +51,6 @@ InnoDB에서는 B-Tree 라고 부르는 B-Tree 인덱스는 사실 B+Tree 를 �
 
 # B+Tree 의 구조
 
-B+Tree 는 B-Tree의 확장 개념이다.<br>
-
 B+Tree 는 브랜치 노드에 key만 담아두고 data는 담지 않는다.<br>
 
 리프노드에만 key와 data를 저장한다. 그리고 리프노드 끼리는 Linked List로 연결되어 있다.<br>
