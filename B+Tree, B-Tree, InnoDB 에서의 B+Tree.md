@@ -1,4 +1,4 @@
-# B+Tree, B-Tree, InnoDB가 채택한 B+Tree
+# B+Tree, B-Tree, InnoDB 에서 B+Tree
 
 # 참고자료
 
@@ -46,6 +46,14 @@ B-Tree의 B는 Binary(이진)의 약자가 아니라, Balanced 의 약자를 의
 InnoDB에서는 B-Tree 라고 부르는 B-Tree 인덱스는 사실 B+Tree 를 조금 복잡하게 구현한 자료구조다. (참고 : [B-Tree, B+Tree란?](https://zorba91.tistory.com/293))<br>
 
 그리고 일반적인 인덱스를 이야기할 때는 B-Tree 라는 용어로 혼용해서 부르는 경우가 많아 혼동을 만드는 경우가 많은 편이다.<br>
+
+보통 InnoDB의 B+Tree 를 B-Tree라고 통칭하는데, 이번 문서에서는 B+Tree 라고 정리하기로 했다.<br>
+
+InnoDB의 B+Tree 라는 말을 쓰는 것과 B-Tree 라고 부르는 것에 차이가 없기는 한데, B+Tree 를 정리하다가 B-Tree를 언급하다보니, B+Tree 라는 용어를 더 많이 사용해서 그냥 B+Tree 라고 적어두로 했다.<br>
+
+혹시라도 면접이나 이런곳에서 이야기할 때는 그냥 B Tree 라고 부르면된다. <br>
+
+망할 데이터베이스 엔진 개발자놈들... 이름 좀 하나로 부르란 말이다.<br>
 
 <br>
 
